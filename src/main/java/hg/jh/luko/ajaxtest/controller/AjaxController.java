@@ -2,7 +2,7 @@ package hg.jh.luko.ajaxtest.controller;
 
 import hg.jh.luko.ajaxtest.DTO.AjaxDTO;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.*; //@Controller와 @ResponseBody 어노테이션을 모두 포함
 
 @Controller
 public class AjaxController {
