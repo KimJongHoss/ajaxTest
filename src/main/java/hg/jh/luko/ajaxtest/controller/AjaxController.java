@@ -46,4 +46,10 @@ public class AjaxController {
         return ajaxDTO;
     }
 
+    @PostMapping("/ex07")
+    public @ResponseBody AjaxDTO ex07(@RequestBody AjaxDTO ajaxDTO){
+        System.out.println("ajaxDTO = " + ajaxDTO);
+        return ajaxDTO;
+    }
+
 }
