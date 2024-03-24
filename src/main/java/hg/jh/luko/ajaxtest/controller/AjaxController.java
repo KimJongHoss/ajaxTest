@@ -1,6 +1,9 @@
 package hg.jh.luko.ajaxtest.controller;
 
 import hg.jh.luko.ajaxtest.DTO.AjaxDTO;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*; //@Controller와 @ResponseBody 어노테이션을 모두 포함
 
@@ -68,6 +71,23 @@ public class AjaxController {
         List<AjaxDTO> dtoList = DTOList();
         dtoList.add(ajaxDTO);
         return dtoList;
+    }
+
+    @PostMapping("/ex09") // success로 보낼건지 error로 보낼건지 제어
+    public ResponseEntity ex09(@RequestBody AjaxDTO ajaxDTO){
+        System.out.println("ajaxDTO = " + ajaxDTO);
+
+//        return new ResponseEntity<>(HttpStatus.NOT_FOUND); //error로 보내기 (404)
+        return new ResponseEntity<>(ajaxDTO, HttpStatus.OK); //데이터도 같이 보내기, success로 보내기
+    }
+
+    @PostMapping("/ex10")
+    public ResponseEntity ex10(@RequestBody AjaxDTO ajaxDTO){
+        System.out.println("ajaxDTO = " + ajaxDTO);
+        List<AjaxDTO> dtoList = DTOList();
+        dtoList.add(ajaxDTO);
+
+        return new ResponseEntity<>(dtoList, HttpStatus.OK);
     }
 
 }
