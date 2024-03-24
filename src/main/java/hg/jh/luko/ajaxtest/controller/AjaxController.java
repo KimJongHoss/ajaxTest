@@ -26,4 +26,11 @@ public class AjaxController {
         System.out.println("param1 = "+ param1 + ", param2 = " + parma2);
         return "exo3 메서드 호출 완료";
     }
+
+    @PostMapping("/ex04")
+    public @ResponseBody String ex04(@RequestParam("param1") String param1,
+                                     @RequestParam("param2") String parma2) {
+        System.out.println("param1 = "+ param1 + ", param2 = " + parma2);
+        return "exo4 메서드 호출 완료";
+    }
 }
